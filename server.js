@@ -11,3 +11,11 @@ const api = require('./routes/apiRoutes');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
+
+app.use(routes);
+// send all the requests that begin with /api to the apiroutes.js in the routes folder
+app.use('/api', api);
+
+app.listen(PORT, () =>
+  console.log(`App listening at http://localhost:${PORT} 🚀`)
+);
