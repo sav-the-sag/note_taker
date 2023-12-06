@@ -6,3 +6,6 @@ const path = require('path');
 router.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/notes.html'), (err) => err ? console.log(err, 'you broke it no notes') : console.log('you did it'));
 });
+
+//export html files
+module.exports = router;
