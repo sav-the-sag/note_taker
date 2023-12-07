@@ -1,7 +1,7 @@
 //import 
 const fs = require('fs');
 const util = require('util');
-const uuid = require('uuid');
+const { v4: uuidv4 } = require('uuid');
 // Promise version of fs.readFile/writefile to make them async
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
@@ -22,7 +22,7 @@ class Store {
         const newNote = {
             title,
             text,
-            note_id: uuid(),//<-calling the uuid npm to run when that new note obj is made
+            note_id: uuidv4(),//<-calling the uuid npm to run when that new note obj is made
         }
         //get notes as array of saved notes
         const savedNotes = JSON.parse(await this.read());
